@@ -37,8 +37,6 @@ import SlideButton from 'rn-slide-button';
 
 ## Component props
 
-### Tabbar
-
 | prop                      | type     | default      | description                                 |
 | ------------------------- | -------- | ------------ | -------------------------------------------- |
 | width                     | number   | screen width | button width.       |
