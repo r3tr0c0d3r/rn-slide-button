@@ -4,7 +4,7 @@ A simple slide button using Reanimated 2 animation library.
 
 ## Preview
 
-![@](https://github.com/emu075/rn-slide-button/blob/master/screenshots/screenshot-rn-slide-button.gif?raw=true)
+![@](https://github.com/r3tr0c0d3r/rn-slide-button/blob/master/screenshots/screenshot-rn-slide-button.gif?raw=true)
 
 
 ## Installation

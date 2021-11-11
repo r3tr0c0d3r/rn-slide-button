@@ -53,13 +53,13 @@
     "slide",
     "swipe"
   ],
-  "repository": "https://github.com/emu075/rn-slide-button",
-  "author": "Saleh Imran <emu.sust@gmail.com> (https://github.com/emu075)",
+  "repository": "https://github.com/r3tr0c0d3r/rn-slide-button",
+  "author": "Saleh Imran <mdsalehimran@gmail.com> (https://github.com/r3tr0c0d3r)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/emu075/rn-slide-button/issues"
+    "url": "https://github.com/r3tr0c0d3r/rn-slide-button/issues"
   },
-  "homepage": "https://github.com/emu075/rn-slide-button#readme",
+  "homepage": "https://github.com/r3tr0c0d3r/rn-slide-button#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
