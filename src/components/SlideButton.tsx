@@ -109,6 +109,7 @@ const SlideButton = ({
 }: SlideButtonProps) => {
   const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
   const [endReached, setEndReached] = React.useState<boolean>(false);
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>();
 
   const gestureDisabled = useSharedValue(disabled);
   const dragX = useSharedValue(0);
@@ -159,6 +160,14 @@ const SlideButton = ({
     }
   }, [dynamicResetDelaying]);
 
+  React.useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   const underlayAnimStyle = useAnimatedStyle(() => {
     return {
       width: thumbWidth - borderWidth * 2 + dragX.value * rtlMultiplier,
@@ -180,7 +189,7 @@ const SlideButton = ({
       if (!dynamicResetEnabled) {
         if (autoReset) {
           gestureDisabled.value = true;
-          setTimeout(() => {
+          timeoutRef.current = setTimeout(() => {
             reset();
           }, autoResetDelay);
         }
@@ -209,13 +218,9 @@ const SlideButton = ({
 
   const moveTo = (value: number, complete: boolean) => {
     'worklet';
-    dragX.value = withSpring(
-      value,
-      { damping: 20, stiffness: 100 },
-      () => {
-        runOnJS(handleComplete)(complete);
-      }
-    );
+    dragX.value = withSpring(value, { damping: 20, stiffness: 100 }, () => {
+      runOnJS(handleComplete)(complete);
+    });
   };
 
   const animatedGestureHandler = useAnimatedGestureHandler<
